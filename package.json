@@ -5,6 +5,8 @@
   "version": "0.0.1",
   "author": "ryan@sandalboyz.com",
   "dependencies": {
+    "carbon-components": "^10.7.2",
+    "carbon-components-react": "^7.7.2",
     "gatsby": "^2.17.4",
     "gatsby-image": "^2.2.29",
     "gatsby-plugin-manifest": "^2.2.23",
