@@ -17,11 +17,9 @@ import {
   HeaderMenuItem,
   HeaderGlobalBar,
   HeaderGlobalAction,
-  SkipToContent,
-  SideNav,
-  SideNavItems,
-  SideNavLink
+  SkipToContent
 } from 'carbon-components-react/lib/components/UIShell'
+import { Notification20 } from '@carbon/icons-react'
 
 import './layout.scss'
 
@@ -42,17 +40,21 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header>
+      <Header aria-label='Header'>
         <SkipToContent />
         <HeaderName href='/' prefix=''>
           {data.site.siteMetadata.title}
         </HeaderName>
-        <HeaderNavigation>
+        <HeaderNavigation aria-label='Header'>
           <HeaderMenuItem href='/repos'>Repositories</HeaderMenuItem>
           <HeaderMenuItem href='/repos'>Repositories</HeaderMenuItem>
           <HeaderMenuItem href='/repos'>Repositories</HeaderMenuItem>
         </HeaderNavigation>
-        <HeaderGlobalBar />
+        <HeaderGlobalBar>
+          <HeaderGlobalAction aria-label='Notifications'>
+            <Notification20 />
+          </HeaderGlobalAction>
+        </HeaderGlobalBar>
       </Header>
 
       <Content>
