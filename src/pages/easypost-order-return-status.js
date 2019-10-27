@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import { DataTable, DataTableSkeleton } from 'carbon-components-react'
 import { Launch16 } from '@carbon/icons-react'
 
@@ -37,82 +38,95 @@ const HEADERS = [
   }
 ]
 
-const rows = [
-  {
-    id: '1',
-    name: 'Ryan Chang',
-    origin: 'Los Angeles, 90034',
-    items: 'ChromaColor | Mandarin 10',
-    tracking: '9000900090009000',
-    status: 'Alert'
-  },
-  {
-    id: '2',
-    name: 'Ryan Chang',
-    origin: 'Los Angeles, 90034',
-    items: 'ChromaColor | Mandarin 10',
-    tracking: '9000900090009000',
-    status: 'Alert'
+const STOCKZ_API_URL = 'http://localhost:3000'
+
+const IndexPage = () => {
+  const [rows, setRows] = useState([])
+  const [loading, setLoading] = useState(false)
+
+  const fetchOrderReturnsStatus = () => {
+    setLoading(true)
+
+    axios
+      .get(`${STOCKZ_API_URL}/getOrderReturnsStatus`)
+      .then(response => {
+        console.log(response)
+        setRows(response.data)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   }
-]
 
-const IndexPage = () => (
-  <Layout>
-    <DataTableSkeleton
-      columnCount={5}
-      compact={false}
-      headers={['Name', 'Origin', 'Items', 'Tracking', 'Status']}
-      rowCount={5}
-      zebra={false}
-    />
-    <DataTable
-      rows={rows}
-      headers={HEADERS}
-      render={({ rows, headers, getHeaderProps }) => (
-        <TableContainer title='Order Returns Status'>
-          <Table>
-            <TableHead>
-              <TableRow>
-                {headers.map(header => (
-                  <TableHeader key={header.key} {...getHeaderProps({ header })}>
-                    {header.header}
-                  </TableHeader>
-                ))}
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rows.map(row => (
-                <TableRow key={row.id}>
-                  {row.cells.map(cell => {
-                    if (cell.id.includes('tracking')) {
-                      const uspsLink = `https://tools.usps.com/go/TrackConfirmAction?tRef=fullpage&tLc=3&text28777=&tLabels=${
-                        cell.value
-                      }`
+  useEffect(() => {
+    console.log('running `useEffect`')
+    fetchOrderReturnsStatus()
+  }, [])
 
-                      return (
-                        <TableCell key={cell.id}>
-                          {cell.value}{' '}
-                          <a
-                            href={uspsLink}
-                            target='_blank'
-                            rel='noopener noreferrer'
-                          >
-                            <Launch16 />
-                          </a>
-                        </TableCell>
-                      )
-                    }
+  return (
+    <Layout>
+      {loading ? (
+        <DataTableSkeleton
+          columnCount={5}
+          compact={false}
+          headers={['Name', 'Origin', 'Items', 'Tracking', 'Status']}
+          rowCount={5}
+          zebra={false}
+        />
+      ) : (
+        <DataTable
+          rows={rows}
+          headers={HEADERS}
+          render={({ rows, headers, getHeaderProps }) => (
+            <TableContainer>
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    {headers.map(header => (
+                      <TableHeader
+                        key={header.key}
+                        {...getHeaderProps({ header })}
+                      >
+                        {header.header}
+                      </TableHeader>
+                    ))}
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {rows.map(row => (
+                    <TableRow key={row.id}>
+                      {row.cells.map(cell => {
+                        if (cell.id.includes('tracking')) {
+                          const uspsLink = `https://tools.usps.com/go/TrackConfirmAction?tRef=fullpage&tLc=3&text28777=&tLabels=${
+                            cell.value
+                          }`
 
-                    return <TableCell key={cell.id}>{cell.value}</TableCell>
-                  })}
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+                          return (
+                            <TableCell key={cell.id}>
+                              {cell.value}{' '}
+                              <a
+                                href={uspsLink}
+                                target='_blank'
+                                rel='noopener noreferrer'
+                              >
+                                <Launch16 />
+                              </a>
+                            </TableCell>
+                          )
+                        }
+
+                        return <TableCell key={cell.id}>{cell.value}</TableCell>
+                      })}
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          )}
+        />
       )}
-    />
-  </Layout>
-)
+    </Layout>
+  )
+}
 
 export default IndexPage

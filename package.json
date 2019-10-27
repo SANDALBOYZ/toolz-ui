@@ -1,13 +1,14 @@
 {
-  "name": "toolz",
+  "name": "toolz-ui",
   "private": true,
-  "description": "SANDALBOYZ Toolz",
+  "description": "SANDALBOYZ Toolz UI",
   "version": "0.0.1",
   "author": "ryan@sandalboyz.com",
   "dependencies": {
     "@carbon/icons-react": "^10.6.1",
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.22",
+    "axios": "^0.19.0",
     "carbon-components": "^10.7.2",
     "carbon-components-react": "^7.7.2",
     "gatsby": "^2.17.4",
