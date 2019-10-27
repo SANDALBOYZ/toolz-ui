@@ -5,6 +5,7 @@
   "version": "0.0.1",
   "author": "ryan@sandalboyz.com",
   "dependencies": {
+    "@carbon/icons-react": "^10.6.1",
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.22",
     "carbon-components": "^10.7.2",
