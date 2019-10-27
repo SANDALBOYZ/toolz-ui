@@ -5,6 +5,8 @@
   "version": "0.0.1",
   "author": "ryan@sandalboyz.com",
   "dependencies": {
+    "@emotion/core": "^10.0.22",
+    "@emotion/styled": "^10.0.22",
     "carbon-components": "^10.7.2",
     "carbon-components-react": "^7.7.2",
     "gatsby": "^2.17.4",
@@ -33,7 +35,7 @@
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
-    "format": "prettier-standard --format",
+    "format": "prettier-standard --format --lint",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
