@@ -38,7 +38,8 @@ const HEADERS = [
   }
 ]
 
-const STOCKZ_API_URL = process.env.GATSBY_STOCKZ_API_URL || 'http://localhost:3000'
+const STOCKZ_API_URL =
+  process.env.GATSBY_STOCKZ_API_URL || 'http://localhost:3000'
 
 const IndexPage = () => {
   const [rows, setRows] = useState([])
