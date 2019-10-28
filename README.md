@@ -9,13 +9,13 @@ React interface for interfacing with various SANDALBOYZ services.
 - [Gatsby](https://github.com/gatsbyjs/gatsby)
 - React
 - [emotion](https://github.com/emotion-js/emotion)
-- Temporarily utilizing [Carbon Design System](https://github.com/carbon-design-system/carbon)
+- [Carbon Design System](https://github.com/carbon-design-system/carbon)
 
-## Developing
+## Development
 
 1. Use `yarn` to install dependencies
 2. `yarn dev` to run locally
 
-## Dependencies
+## Deployment
 
-- https://github.com/SANDALBOYZ/stockz
+Done automagically through [Netlify](https://app.netlify.com/)!
