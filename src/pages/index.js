@@ -14,22 +14,22 @@ const IndexPage = () => (
     </div>
     <UnorderedList>
       <ListItem>
-        <Link to='/sync-inventories'>
-          Sync Inventories Between EasyPost and Shopify
-        </Link>
-      </ListItem>
-      <ListItem>
         <Link to='/easypost-order-return-status'>
           EasyPost Order Return Status
         </Link>
       </ListItem>
       <ListItem>
-        <Link to='/easypost-order-return-status'>
+        <Link to='/under-construction-page'>
+          Sync Inventories Between EasyPost and Shopify
+        </Link>
+      </ListItem>
+      <ListItem>
+        <Link to='/under-construction-page'>
           Delete Products on EasyPost
         </Link>
       </ListItem>
       <ListItem>
-        <Link to='/easypost-order-return-status'>
+        <Link to='/under-construction-page'>
           Get Total Inventory Quantity at EasyPost
         </Link>
       </ListItem>
