@@ -1,10 +1,14 @@
 {
-  "name": "toolz",
+  "name": "toolz-ui",
   "private": true,
-  "description": "SANDALBOYZ Toolz",
+  "description": "SANDALBOYZ Toolz UI",
   "version": "0.0.1",
   "author": "ryan@sandalboyz.com",
   "dependencies": {
+    "@carbon/icons-react": "^10.6.1",
+    "@emotion/core": "^10.0.22",
+    "@emotion/styled": "^10.0.22",
+    "axios": "^0.19.0",
     "carbon-components": "^10.7.2",
     "carbon-components-react": "^7.7.2",
     "gatsby": "^2.17.4",
@@ -17,13 +21,13 @@
     "gatsby-source-filesystem": "^2.1.33",
     "gatsby-transformer-sharp": "^2.3.0",
     "node-sass": "^4.13.0",
-    "prettier-standard": "^15.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
+    "prettier-standard": "^15.0.1",
     "standard": "^14.3.1"
   },
   "keywords": [
@@ -33,15 +37,15 @@
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
-    "format": "prettier-standard --format",
+    "format": "prettier-standard --format --lint",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/SANDALBOYZ/toolz-ui"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/SANDALBOYZ/toolz-ui/issues"
   }
 }
