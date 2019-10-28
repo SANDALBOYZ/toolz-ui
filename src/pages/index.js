@@ -24,9 +24,7 @@ const IndexPage = () => (
         </Link>
       </ListItem>
       <ListItem>
-        <Link to='/under-construction-page'>
-          Delete Products on EasyPost
-        </Link>
+        <Link to='/under-construction-page'>Delete Products on EasyPost</Link>
       </ListItem>
       <ListItem>
         <Link to='/under-construction-page'>
