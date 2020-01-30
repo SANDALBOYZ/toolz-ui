@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "prettier-standard": "^15.0.1",
+    "snazzy": "^8.0.0",
     "standard": "^14.3.1"
   },
   "keywords": [
@@ -37,6 +38,7 @@
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
+    "lint": "standard --verbose | snazzy",
     "format": "prettier-standard --format --lint",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 0"
