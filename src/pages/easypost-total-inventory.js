@@ -9,16 +9,20 @@ const STOCKZ_API_URL =
 
 const EasyPostTotalInventory = () => {
   const [inventoryMessage, setInventoryMessage] = useState([])
+  const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
 
   const fetchTotalInventory = () => {
     setLoading(true)
 
     axios
-      .get(`${STOCKZ_API_URL}/getTotalInventoryQuantity`)
+      .get(`${STOCKZ_API_URL}/getTotalInventoryQuantityz`)
       .then(response => {
-        // console.log(response)
         setInventoryMessage(get(response, 'data.message'))
+      })
+      .catch(error => {
+        console.log('Error occurred while fetching inventory quantity from SANDALBOYZ API.', error)
+        setError(true)
       })
       .finally(() => {
         setLoading(false)
@@ -33,6 +37,7 @@ const EasyPostTotalInventory = () => {
   return (
     <Layout>
       {loading && <div>Loading...</div>}
+      {error && <div>Something broke!</div>}
       <div>{inventoryMessage}</div>
     </Layout>
   )
