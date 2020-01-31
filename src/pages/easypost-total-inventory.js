@@ -16,7 +16,7 @@ const EasyPostTotalInventory = () => {
     setLoading(true)
 
     axios
-      .get(`${STOCKZ_API_URL}/getTotalInventoryQuantityz`)
+      .get(`${STOCKZ_API_URL}/getTotalInventoryQuantity`)
       .then(response => {
         setInventoryMessage(get(response, 'data.message'))
       })
